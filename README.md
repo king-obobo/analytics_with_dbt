@@ -35,8 +35,8 @@ dbt/
 │   │       └── reporting/
 │   │           ├── rpt_clean_table.sql
 │   │           ├── rpt_descriptive_analysis.sql
-│   │           ├── rpt_gographic_conc.sql
-│   │           ├── rpt_segment_isights.sql
+│   │           ├── rpt_geographic_conc.sql
+│   │           ├── rpt_segment_insights.sql
 │   │           ├── rpt_shipping_mode.sql
 │   │           └── rpt_top_prods_and_cat.sql
 │   ├── tests/
@@ -52,6 +52,11 @@ dbt/
 ```
 
 ## Data model
+
+### ERD
+Below is the ERD for my data warehouse
+![ER Diagram](ERD.jpg)
+
 
 ### Staging layer
 - `stg_super_store_data.sql` cleans and standardizes raw source columns, including:
@@ -70,8 +75,8 @@ dbt/
 ### Reporting layer
 - `rpt_clean_table.sql`: combined business-ready table used by downstream analyses
 - `rpt_descriptive_analysis.sql`: overall KPI summary
-- `rpt_gographic_conc.sql`: sales and profit by region
-- `rpt_segment_isights.sql`: customer segment performance
+- `rpt_geographic_conc.sql`: sales and profit by region
+- `rpt_segment_insights.sql`: customer segment performance
 - `rpt_shipping_mode.sql`: shipping mode metrics
 - `rpt_top_prods_and_cat.sql`: top products and category/sub-category performance
 
