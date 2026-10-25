@@ -1,0 +1,12 @@
+learn_dbt:
+  outputs:
+    dev:
+      dbname: your_database_name
+      host: localhost
+      password: your_password
+      port: 5432
+      schema: your_schema_name
+      threads: 4
+      type: postgres
+      user: your_username
+  target: dev

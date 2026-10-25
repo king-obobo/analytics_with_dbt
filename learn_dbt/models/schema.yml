@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "This table contains the customer dimension data, including customer ID, name, segment, and region."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_orders
+    description: "This table contains the order dimension data, including order_id, order_date, ship_date, ship_mode, customer_id, shipping_cost and order_priority."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Identifier for the customer who placed the order."
+        tests:
+          - not_null
+
+  - name: dim_products
+    description: "This table contains the product dimension data, including product ID, name, category, and sub-category."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_orders
+    description: "This table contains the fact data for orders, including row_id, sales, quantity, discount, profit, product_id and order_id."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_orders')
+              field: order_id
+      - name: product_id
+        description: "Identifier for the product included in the order."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: sales
+        description: "The total sales amount for the order."
+        tests:
+          - not_null

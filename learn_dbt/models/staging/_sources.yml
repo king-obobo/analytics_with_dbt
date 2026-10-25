@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Raw data from the global superstore dataset"
+    database: dbt_db
+    schema: staging
+    tables:
+      - name: global_superstore2
