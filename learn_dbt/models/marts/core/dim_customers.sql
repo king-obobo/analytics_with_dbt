@@ -13,8 +13,7 @@ ranked_customers AS (
         state,
         country,
         postal_code,
-        market,
-        region,
+        market_region,
         ROW_NUMBER() OVER (
             PARTITION BY customer_id 
             ORDER BY order_date DESC
@@ -30,7 +29,6 @@ SELECT
     state,
     country,
     postal_code,
-    market,
-    region
+    market_region
 FROM ranked_customers
 WHERE rn = 1

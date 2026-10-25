@@ -9,7 +9,7 @@ SELECT
     c.segment,
     c.city,
     c.state,
-    c.region,
+    c.market_region,
     p.product_id,
     p.product_name,
     p.category,
